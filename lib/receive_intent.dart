@@ -61,7 +61,7 @@ class ReceiveIntent {
 
   static Future<ReceivedIntent?> getInitialIntent() async {
     final renameMap = await _methodChannel.invokeMapMethod('getInitialIntent');
-    print("result: $renameMap");
+    //print("result: $renameMap");
     return ReceivedIntent.fromMap(renameMap);
   }
 
