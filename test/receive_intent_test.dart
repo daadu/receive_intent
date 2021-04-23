@@ -1,6 +1,5 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:receive_intent/receive_intent.dart';
 
 void main() {
   const MethodChannel channel = MethodChannel('receive_intent');
@@ -17,7 +16,7 @@ void main() {
     channel.setMockMethodCallHandler(null);
   });
 
-  test('getPlatformVersion', () async {
-    expect(await ReceiveIntent.platformVersion, '42');
-  });
+  // test('getPlatformVersion', () async {
+  //   expect(await ReceiveIntent.platformVersion, '42');
+  // });
 }

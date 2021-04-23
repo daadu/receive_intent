@@ -1,36 +1,130 @@
 package com.bhikadia.receive_intent
 
+import android.app.Activity
+import android.content.Context
+import android.content.Intent
 import androidx.annotation.NonNull
-
 import io.flutter.embedding.engine.plugins.FlutterPlugin
+import io.flutter.embedding.engine.plugins.activity.ActivityAware
+import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
+import io.flutter.plugin.common.EventChannel
+import io.flutter.plugin.common.EventChannel.EventSink
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
-import io.flutter.plugin.common.PluginRegistry.Registrar
+
 
 /** ReceiveIntentPlugin */
-class ReceiveIntentPlugin: FlutterPlugin, MethodCallHandler {
-  /// The MethodChannel that will the communication between Flutter and native Android
-  ///
-  /// This local reference serves to register the plugin with the Flutter Engine and unregister it
-  /// when the Flutter Engine is detached from the Activity
-  private lateinit var channel : MethodChannel
+class ReceiveIntentPlugin : FlutterPlugin, MethodCallHandler, EventChannel.StreamHandler, ActivityAware {
+    /// The MethodChannel that will the communication between Flutter and native Android
+    ///
+    /// This local reference serves to register the plugin with the Flutter Engine and unregister it
+    /// when the Flutter Engine is detached from the Activity
+    private lateinit var methodChannel: MethodChannel
+    private lateinit var eventChannel: EventChannel
+    private var eventSink: EventSink? = null
 
-  override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
-    channel = MethodChannel(flutterPluginBinding.binaryMessenger, "receive_intent")
-    channel.setMethodCallHandler(this)
-  }
+    private lateinit var context: Context
+    private var activity: Activity? = null;
 
-  override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
-    if (call.method == "getPlatformVersion") {
-      result.success("Android ${android.os.Build.VERSION.RELEASE}")
-    } else {
-      result.notImplemented()
+
+    private var initialIntentMap: Map<String, Any?>? = null
+    private var latestIntentMap: Map<String, Any?>? = null
+    private var initialIntent = true
+
+    private fun intentToMap(intent: Intent, fromPackageName: String?): Map<String, Any?> {
+        return mapOf(
+                "fromPackageName" to fromPackageName,
+                "fromSignatures" to fromPackageName?.let { getApplicationSignature(context, it) },
+                "action" to intent.action,
+                "data" to intent.dataString,
+                "categories" to intent.categories,
+                "extra" to intent.extras?.let { bundleToMap(it) }
+        )
     }
-  }
 
-  override fun onDetachedFromEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
-    channel.setMethodCallHandler(null)
-  }
+    private fun handleIntent(intent: Intent, fromPackageName: String?) {
+        if (initialIntent) {
+            initialIntentMap = intentToMap(intent, fromPackageName)
+            initialIntent = false
+        }
+        latestIntentMap = intentToMap(intent, fromPackageName)
+        eventSink?.success(latestIntentMap)
+    }
+
+    private fun giveResult(result: Result, resultCode: Int?, data: Map<String, Any?>?) {
+        if (resultCode != null) {
+            if (data == null)
+                activity?.setResult(resultCode)
+            else
+                activity?.setResult(resultCode, mapToIntent(data))
+            result.success(null)
+        }
+        result.error("InvalidArg", "resultCode can not be null", null)
+    }
+
+
+    override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
+        context = flutterPluginBinding.applicationContext
+
+        methodChannel = MethodChannel(flutterPluginBinding.binaryMessenger, "receive_intent")
+        methodChannel.setMethodCallHandler(this)
+
+        eventChannel = EventChannel(flutterPluginBinding.binaryMessenger, "receive_intent/event")
+        eventChannel.setStreamHandler(this)
+    }
+
+    override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
+        when (call.method) {
+            "getInitialIntent" -> {
+                result.success(initialIntentMap)
+            }
+            "giveResult" -> {
+                giveResult(result, call.argument("resultCode"), call.argument("data"))
+            }
+            else -> {
+                result.notImplemented()
+            }
+        }
+    }
+
+    override fun onListen(arguments: Any?, events: EventSink?) {
+        eventSink = events
+    }
+
+    override fun onCancel(arguments: Any?) {
+        eventSink = null
+    }
+
+    override fun onDetachedFromEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
+        methodChannel.setMethodCallHandler(null)
+        eventChannel.setStreamHandler(null)
+    }
+
+    override fun onAttachedToActivity(binding: ActivityPluginBinding) {
+        activity = binding.activity
+        binding.addOnNewIntentListener(fun(intent: Intent?): Boolean {
+            intent?.let { handleIntent(it, binding.activity.callingActivity?.packageName) }
+            return false;
+        })
+        handleIntent(binding.activity.intent, binding.activity.callingActivity?.packageName)
+    }
+
+    override fun onDetachedFromActivityForConfigChanges() {
+        activity = null;
+    }
+
+    override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
+        activity = binding.activity
+        binding.addOnNewIntentListener(fun(intent: Intent?): Boolean {
+            intent?.let { handleIntent(it, binding.activity.callingActivity?.packageName) }
+            return false;
+        })
+        handleIntent(binding.activity.intent, binding.activity.callingActivity?.packageName)
+    }
+
+    override fun onDetachedFromActivity() {
+        activity = null;
+    }
 }
