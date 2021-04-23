@@ -1,8 +1,10 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:flutter/services.dart';
 
 class ReceivedIntent {
+  final bool isNull;
   final String? fromPackageName;
   final List<String>? fromSignatures;
   final String action;
@@ -10,7 +12,10 @@ class ReceivedIntent {
   final List<String>? categories;
   final Map<String, dynamic>? extra;
 
+  bool get isNotNull => !isNull;
+
   const ReceivedIntent({
+    this.isNull = true,
     this.fromPackageName,
     this.fromSignatures,
     required this.action,
@@ -20,14 +25,32 @@ class ReceivedIntent {
   });
 
   factory ReceivedIntent.fromMap(Map? map) => ReceivedIntent(
+        isNull: map == null,
         fromPackageName: map?["fromPackageName"],
-        fromSignatures: map?["fromSignatures"],
+        fromSignatures: map?["fromSignatures"] != null
+            ? List.unmodifiable(
+                (map!["fromSignatures"] as List).map((e) => e.toString()))
+            : null,
         action: map?["action"],
         data: map?["data"],
-        categories: map?["categories"],
-        extra: (map?["extra"] as Map?)?.map<String, dynamic>(
-            (key, value) => MapEntry(key.toString(), value)),
+        categories: map?["categories"] != null
+            ? List.unmodifiable(
+                (map!["categories"] as List).map((e) => e.toString()))
+            : null,
+        extra: map?["extra"] != null
+            ? (json.decode(map!["extra"]) as Map)
+                .map((key, value) => MapEntry(key.toString(), value))
+            : null,
       );
+
+  Map<String, dynamic> toMap() => {
+        "fromPackageName": fromPackageName,
+        "fromSignatures": fromSignatures,
+        "action": action,
+        "data": data,
+        "categories": categories,
+        "extra": extra,
+      };
 }
 
 class ReceiveIntent {
@@ -47,7 +70,9 @@ class ReceiveIntent {
       .map<ReceivedIntent?>((event) => ReceivedIntent.fromMap(event as Map?));
 
   static Future<void> giveResult(int resultCode, {Map? data}) async {
-    await _methodChannel.invokeMethod('giveResult',
-        <String, dynamic>{"resultCode": resultCode, "data": data});
+    await _methodChannel.invokeMethod('giveResult', <String, dynamic>{
+      "resultCode": resultCode,
+      "data": json.encode(data),
+    });
   }
 }

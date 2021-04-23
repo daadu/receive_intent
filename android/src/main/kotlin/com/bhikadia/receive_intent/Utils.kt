@@ -6,13 +6,18 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.os.Parcelable
+import android.util.Log
+import org.json.JSONArray
+import org.json.JSONException
+import org.json.JSONObject
 import java.security.MessageDigest
 
-fun mapToBundle(map: Map<String, Any?>): Bundle {
-    val bundle = Bundle();
-    map.forEach {
-        val k = it.key
-        val v = it.value
+
+fun jsonToBundle(json: JSONObject): Bundle {
+    val bundle = Bundle()
+    json.keys().forEach {
+        val k = it
+        val v = json.get(k)
         when (v) {
             is Byte -> bundle.putByte(k, v)
             is ByteArray -> bundle.putByteArray(k, v)
@@ -30,20 +35,86 @@ fun mapToBundle(map: Map<String, Any?>): Bundle {
     return bundle;
 }
 
-fun mapToIntent(map: Map<String, Any?>): Intent = Intent().apply {
-    putExtras(mapToBundle(map))
+fun jsonToIntent(json: JSONObject): Intent = Intent().apply {
+    putExtras(jsonToBundle(json))
 }
 
 
-fun bundleToMap(extras: Bundle): Map<String, Any?> {
-    val map: MutableMap<String, Any?> = HashMap()
-    val ks = extras.keySet()
+fun bundleToJSON(bundle: Bundle): JSONObject {
+    val json = JSONObject()
+    val ks = bundle.keySet()
     val iterator: Iterator<String> = ks.iterator()
     while (iterator.hasNext()) {
         val key = iterator.next()
-        map[key] = extras.get(key)
+        try {
+            json.put(key, wrap(bundle.get(key)))
+        } catch (e: JSONException) {
+            e.printStackTrace()
+        }
     }
-    return map
+    return json
+}
+
+fun wrap(o: Any?): Any? {
+    if (o == null) {
+        return JSONObject.NULL
+    }
+    if (o is JSONArray || o is JSONObject) {
+        return o
+    }
+    if (o == JSONObject.NULL) {
+        return o
+    }
+    try {
+        if (o is Collection<*>) {
+            Log.e("ReceiveIntentPlugin", "$o is Collection<*>")
+            return JSONArray(o as Collection<*>?)
+        } else if (o.javaClass.isArray) {
+            Log.e("ReceiveIntentPlugin", "$o is isArray")
+            return toJSONArray(o)
+        }
+        if (o is Map<*, *>) {
+            Log.e("ReceiveIntentPlugin", "$o is Map<*, *>")
+            return JSONObject(o as Map<*, *>?)
+        }
+        if (o is Boolean ||
+                o is Byte ||
+                o is Char ||
+                o is Double ||
+                o is Float ||
+                o is Int ||
+                o is Long ||
+                o is Short ||
+                o is String) {
+            return o
+        }
+        if (o.javaClass.getPackage().name.startsWith("java.")) {
+            return o.toString()
+        }
+    } catch (e: Exception) {
+        Log.e("ReceiveIntentPlugin", e.message, e)
+        e.printStackTrace()
+    }
+    return null
+}
+
+@Throws(JSONException::class)
+fun toJSONArray(array: Any): JSONArray? {
+    val result = JSONArray()
+    if (!array.javaClass.isArray) {
+        throw JSONException("Not a primitive array: " + array.javaClass)
+    }
+
+    when (array) {
+        is List<*> -> {
+            array.forEach { result.put(wrap(it)) }
+        }
+        is Array<*> -> {
+            array.forEach { result.put(wrap(it)) }
+        }
+    }
+
+    return result
 }
 
 fun getApplicationSignature(context: Context, packageName: String): List<String> {

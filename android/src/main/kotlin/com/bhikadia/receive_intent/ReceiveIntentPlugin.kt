@@ -3,6 +3,7 @@ package com.bhikadia.receive_intent
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import androidx.annotation.NonNull
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
@@ -13,6 +14,7 @@ import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
+import org.json.JSONObject
 
 
 /** ReceiveIntentPlugin */
@@ -40,11 +42,14 @@ class ReceiveIntentPlugin : FlutterPlugin, MethodCallHandler, EventChannel.Strea
                 "action" to intent.action,
                 "data" to intent.dataString,
                 "categories" to intent.categories,
-                "extra" to intent.extras?.let { bundleToMap(it) }
+                "extra" to intent.extras?.let { bundleToJSON(it).toString() }
         )
     }
 
     private fun handleIntent(intent: Intent, fromPackageName: String?) {
+        Log.e("ReceiveIntentPlugin", "intent: $intent")
+        Log.e("ReceiveIntentPlugin", "fromPackageName: $fromPackageName")
+        Log.e("ReceiveIntentPlugin", "intentMap: " + intentToMap(intent, fromPackageName))
         if (initialIntent) {
             initialIntentMap = intentToMap(intent, fromPackageName)
             initialIntent = false
@@ -53,12 +58,15 @@ class ReceiveIntentPlugin : FlutterPlugin, MethodCallHandler, EventChannel.Strea
         eventSink?.success(latestIntentMap)
     }
 
-    private fun giveResult(result: Result, resultCode: Int?, data: Map<String, Any?>?) {
+    private fun giveResult(result: Result, resultCode: Int?, data: String?) {
         if (resultCode != null) {
-            if (data == null)
+            if (data == null) {
                 activity?.setResult(resultCode)
-            else
-                activity?.setResult(resultCode, mapToIntent(data))
+            }
+            else {
+                val json = JSONObject(data)
+                activity?.setResult(resultCode, jsonToIntent(json))
+            }
             result.success(null)
         }
         result.error("InvalidArg", "resultCode can not be null", null)
