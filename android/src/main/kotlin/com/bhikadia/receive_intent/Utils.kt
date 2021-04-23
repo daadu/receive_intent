@@ -67,14 +67,14 @@ fun wrap(o: Any?): Any? {
     }
     try {
         if (o is Collection<*>) {
-            Log.e("ReceiveIntentPlugin", "$o is Collection<*>")
+            //Log.e("ReceiveIntentPlugin", "$o is Collection<*>")
             return JSONArray(o as Collection<*>?)
         } else if (o.javaClass.isArray) {
-            Log.e("ReceiveIntentPlugin", "$o is isArray")
+            //Log.e("ReceiveIntentPlugin", "$o is isArray")
             return toJSONArray(o)
         }
         if (o is Map<*, *>) {
-            Log.e("ReceiveIntentPlugin", "$o is Map<*, *>")
+            //Log.e("ReceiveIntentPlugin", "$o is Map<*, *>")
             return JSONObject(o as Map<*, *>?)
         }
         if (o is Boolean ||
@@ -92,8 +92,7 @@ fun wrap(o: Any?): Any? {
             return o.toString()
         }
     } catch (e: Exception) {
-        Log.e("ReceiveIntentPlugin", e.message, e)
-        e.printStackTrace()
+        //Log.e("ReceiveIntentPlugin", e.message, e)
     }
     return null
 }

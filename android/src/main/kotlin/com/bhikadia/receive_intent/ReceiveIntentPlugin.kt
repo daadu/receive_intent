@@ -3,7 +3,6 @@ package com.bhikadia.receive_intent
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import androidx.annotation.NonNull
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
@@ -47,9 +46,9 @@ class ReceiveIntentPlugin : FlutterPlugin, MethodCallHandler, EventChannel.Strea
     }
 
     private fun handleIntent(intent: Intent, fromPackageName: String?) {
-        Log.e("ReceiveIntentPlugin", "intent: $intent")
-        Log.e("ReceiveIntentPlugin", "fromPackageName: $fromPackageName")
-        Log.e("ReceiveIntentPlugin", "intentMap: " + intentToMap(intent, fromPackageName))
+        //Log.e("ReceiveIntentPlugin", "intent: $intent")
+        //Log.e("ReceiveIntentPlugin", "fromPackageName: $fromPackageName")
+        //Log.e("ReceiveIntentPlugin", "intentMap: " + intentToMap(intent, fromPackageName))
         if (initialIntent) {
             initialIntentMap = intentToMap(intent, fromPackageName)
             initialIntent = false
@@ -62,8 +61,7 @@ class ReceiveIntentPlugin : FlutterPlugin, MethodCallHandler, EventChannel.Strea
         if (resultCode != null) {
             if (data == null) {
                 activity?.setResult(resultCode)
-            }
-            else {
+            } else {
                 val json = JSONObject(data)
                 activity?.setResult(resultCode, jsonToIntent(json))
             }
