@@ -15,24 +15,27 @@ import java.security.MessageDigest
 
 fun jsonToBundle(json: JSONObject): Bundle {
     val bundle = Bundle()
-    json.keys().forEach {
-        val k = it
-        val v = json.get(k)
-        when (v) {
-            is Byte -> bundle.putByte(k, v)
-            is ByteArray -> bundle.putByteArray(k, v)
-            is Char -> bundle.putChar(k, v)
-            is CharArray -> bundle.putCharArray(k, v)
-            is CharSequence -> bundle.putCharSequence(k, v)
-            is Float -> bundle.putFloat(k, v)
-            is FloatArray -> bundle.putFloatArray(k, v)
-            is Parcelable -> bundle.putParcelable(k, v)
-            is Short -> bundle.putShort(k, v)
-            is ShortArray -> bundle.putShortArray(k, v)
-            else -> throw IllegalArgumentException("$v is of a type that is not currently supported")
+    try {
+        val iterator: Iterator<String> = json.keys()
+        while (iterator.hasNext()) {
+            val key = iterator.next()
+            val value: Any = json.get(key)
+            when (value.javaClass.getSimpleName()) {
+                "String" -> bundle.putString(key, value as String)
+                "Integer" -> bundle.putInt(key, value as Int)
+                "Long" -> bundle.putLong(key, value as Long)
+                "Boolean" -> bundle.putBoolean(key, value as Boolean)
+                "JSONObject" -> bundle.putBundle(key, jsonToBundle(value as JSONObject))
+                "Float" -> bundle.putFloat(key, value as Float)
+                "Double" -> bundle.putDouble(key, value as Double)
+                else -> bundle.putString(key, value.toString())
+            }
         }
+    } catch (e: JSONException) {
+        e.printStackTrace()
     }
-    return bundle;
+    return bundle
+
 }
 
 fun jsonToIntent(json: JSONObject): Intent = Intent().apply {
@@ -125,14 +128,14 @@ fun getApplicationSignature(context: Context, packageName: String): List<String>
             signatureList = if (sig.hasMultipleSigners()) {
                 // Send all with apkContentsSigners
                 sig.apkContentsSigners.map {
-                    val digest = MessageDigest.getInstance("SHA")
+                    val digest = MessageDigest.getInstance("SHA-256")
                     digest.update(it.toByteArray())
                     bytesToHex(digest.digest())
                 }
             } else {
                 // Send one with signingCertificateHistory
                 sig.signingCertificateHistory.map {
-                    val digest = MessageDigest.getInstance("SHA")
+                    val digest = MessageDigest.getInstance("SHA-256")
                     digest.update(it.toByteArray())
                     bytesToHex(digest.digest())
                 }
@@ -140,7 +143,7 @@ fun getApplicationSignature(context: Context, packageName: String): List<String>
         } else {
             val sig = context.packageManager.getPackageInfo(packageName, PackageManager.GET_SIGNATURES).signatures
             signatureList = sig.map {
-                val digest = MessageDigest.getInstance("SHA")
+                val digest = MessageDigest.getInstance("SHA-256")
                 digest.update(it.toByteArray())
                 bytesToHex(digest.digest())
             }
