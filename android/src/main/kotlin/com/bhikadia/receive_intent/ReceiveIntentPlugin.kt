@@ -57,7 +57,7 @@ class ReceiveIntentPlugin : FlutterPlugin, MethodCallHandler, EventChannel.Strea
         eventSink?.success(latestIntentMap)
     }
 
-    private fun giveResult(result: Result, resultCode: Int?, data: String?, shouldFinish: Bool?) {
+    private fun giveResult(result: Result, resultCode: Int?, data: String?, shouldFinish: Boolean?) {
         if (resultCode != null) {
             if (data == null) {
                 activity?.setResult(resultCode)
