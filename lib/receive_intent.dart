@@ -69,10 +69,11 @@ class ReceiveIntent {
       .receiveBroadcastStream()
       .map<ReceivedIntent?>((event) => ReceivedIntent.fromMap(event as Map?));
 
-  static Future<void> giveResult(int resultCode, {Map? data}) async {
+  static Future<void> giveResult(int resultCode, {Map? data, bool shouldFinish: false}) async {
     await _methodChannel.invokeMethod('giveResult', <String, dynamic>{
       "resultCode": resultCode,
       "data": json.encode(data),
+      "shouldFinish": shouldFinish,
     });
   }
 }
