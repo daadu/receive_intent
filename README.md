@@ -3,6 +3,8 @@
 [![pub.dev](https://img.shields.io/pub/v/receive_intent?logo=dart)](https://pub.dev/packages/receive_intent)
 [![pub points](https://badges.bar/receive_intent/pub%20points)](https://pub.dev/packages/receive_intent/score)
 [![popularity](https://badges.bar/receive_intent/popularity)](https://pub.dev/packages/receive_intent/score)
+[![likes](https://badges.bar/receive_intent/likes)](https://pub.dev/packages/receive_intent/score)
+[![analysis](https://github.com/daadu/receive_intent/workflows/analysis/badge.svg)](https://github.com/daadu/receive_intent/actions?query=workflow%3Aanalysis)
 [![GitHub issues](https://img.shields.io/github/issues/daadu/receive_intent?logo=github)](https://github.com/daadu/receive_intent/issues)
 [![GitHub milestone](https://img.shields.io/github/milestones/progress-percent/daadu/receive_intent/1?logo=github)](https://github.com/daadu/receive_intent/milestone/1)
 [![GitHub stars](https://img.shields.io/github/stars/daadu/receive_intent?logo=github)](https://github.com/daadu/receive_intent/stargazers)
