@@ -1,15 +1,53 @@
 # receive_intent
 
-A new Flutter plugin.
+[![pub.dev](https://img.shields.io/pub/v/receive_intent?logo=dart)](https://pub.dev/packages/receive_intent)
+[![pub points](https://badges.bar/receive_intent/pub%20points)](https://pub.dev/packages/receive_intent/score)
+[![popularity](https://badges.bar/receive_intent/popularity)](https://pub.dev/packages/receive_intent/score)
+[![GitHub issues](https://img.shields.io/github/issues/daadu/receive_intent?logo=github)](https://github.com/daadu/receive_intent/issues)
+[![GitHub milestone](https://img.shields.io/github/milestones/progress-percent/daadu/receive_intent/1?logo=github)](https://github.com/daadu/receive_intent/milestone/1)
+[![GitHub stars](https://img.shields.io/github/stars/daadu/receive_intent?logo=github)](https://github.com/daadu/receive_intent/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/daadu/receive_intent?logo=github)](https://github.com/daadu/receive_intent/network)
 
-## Getting Started
+A Flutter plugin to pass Android Intents to the Flutter environment.
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+`Intent` in Android is the backbone of communicating between and within apps. This plugin passes the `Intent`, which "started"  the `Activity` (which is running flutter runtime) to the flutter environment. It also passes any "new Intent" that was received while the `Activity` was already "started" (via [`Activity.onNewIntent`](https://developer.android.com/reference/android/app/Activity#onNewIntent(android.content.Intent))).
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+If the `Intent` was "started" via `startActivityForResult`, then this plugin also sends additional information (package name and app signature) about the "calling" Android Component, and can send "result" back (via [`Activity.setResult`](https://developer.android.com/reference/android/app/Activity#setResult(int))) to it.
 
+This widget is in active development.
+___Any contribution, idea, criticism or feedback is welcomed.___
+
+## Quick links
+| | |
+|-|-|
+| __package__ | https://pub.dev/packages/receive_intent |
+| __Git Repo__  | https://github.com/daadu/receive_intent |
+| __Issue Tracker__ | https://github.com/daadu/receive_intent/issues |
+
+
+## Use cases
+- [OAuth based App Flip](https://developers.google.com/identity/account-linking/app-flip-overview) - This was the initial motivation for this plugin. The plugin can used to pass the `Intent` sent by Google App to the flutter environment - where the UI for consent for user is show - once it is authorized (or not), the result is sent back to the Google App.
+- In general, if you want other apps to "start" your app, then this plugin can pass the `Intent` that "triggered" it to the flutter environment of the app. These `Intent` will give the app understanding of why the app was started. Check [Getting started](#getting-started) section to implement this.
+
+## Getting started
+TODO
+
+## Todo
+- Document API references properly
+- Receive Intent for non-`Activity` based `intent-filter` (`BroadcastReceiver`, `Service`)
+- Automatic testing
+
+## Contribute
+Check the Todo section above, before you begin with any contribution.
+
+1. You'll need a GitHub account.
+2. Fork the [repository](https://github.com/daadu/receive_intent).
+3. Pick an issue to work on from [issue tracker](https://github.com/daadu/receive_intent/issues).
+4. Implement it.
+5. Add your name and email in `authors` section in `pubspec.yaml` file.
+6. Send merge request.
+7. Star this project.
+8. Become a hero!!
+
+## Features and bugs
+Please file feature requests and bugs at the [issue tracker](https://github.com/daadu/receive_intent/issues).
