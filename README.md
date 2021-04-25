@@ -27,7 +27,7 @@ ___Any contribution, idea, criticism or feedback is welcomed.___
 
 ## Use cases
 - [OAuth based App Flip](https://developers.google.com/identity/account-linking/app-flip-overview) - This was the initial motivation for this plugin. The plugin can be used to pass the `Intent` sent by Google App to the flutter environment - where the consent UI is shown - once it is authorized (or not), the result is sent back to the Google App.
-- Deeplink/Applink - This plugin is a genric implementation of [uni_links](https://pub.dev/packages/uni_links) plugin. While this plugin passes "any" Intents, `uni_links` only plasses app-link/deep-link Intents.
+- Deeplink/Applink - This plugin is a genric implementation of [uni_links](https://pub.dev/packages/uni_links) plugin. While this plugin passes "any" Intents, `uni_links` only passes app-link/deep-link Intents.
 - In general, if you want other apps to "start" your app, then this plugin can pass the `Intent` that "triggered" it to the flutter environment of the app. These `Intent` will give the app understanding of why the app was started. Check [Getting started](#getting-started) section to implement this.
 
 ## Getting started
