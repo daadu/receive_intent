@@ -36,7 +36,7 @@ ___Any contribution, idea, criticism or feedback is welcomed.___
 TODO
 
 ## Todo
-- Write [Getting started](getting-started) section
+- Write [Getting started](#getting-started) section
 - Document API references properly
 - Receive Intent for non-`Activity` based `intent-filter` (`BroadcastReceiver`, `Service`)
 - Automatic testing
