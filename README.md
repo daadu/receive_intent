@@ -39,7 +39,7 @@ TODO
 - Automatic testing
 
 ## Contribute
-Check the Todo section above, before you begin with any contribution.
+Check the [Todo](#todo) section above, before you begin with any contribution.
 
 1. You'll need a GitHub account.
 2. Fork the [repository](https://github.com/daadu/receive_intent).
