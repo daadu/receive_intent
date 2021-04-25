@@ -1,3 +1,3 @@
-## 0.0.1
+## [0.1.0] - 25 April 2021
 
-* TODO: Describe initial release.
+* Initial release
