@@ -16,7 +16,7 @@ A Flutter plugin to pass Android Intents to the Flutter environment.
 
 If the `Intent` was "started" via `startActivityForResult`, then this plugin also sends additional information (package name and app signature) about the "calling" Android Component, and can send "result" back (via [`Activity.setResult`](https://developer.android.com/reference/android/app/Activity#setResult(int))) to it.
 
-This widget is in active development.
+This plugin is in active development.
 ___Any contribution, idea, criticism or feedback is welcomed.___
 
 ## Quick links
