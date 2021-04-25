@@ -12,7 +12,7 @@
 
 A Flutter plugin to pass Android Intents to the Flutter environment.
 
-`Intent` in Android is the backbone of communicating between and within apps. This plugin passes the `Intent`, which "started"  the `Activity` (which is running flutter runtime) to the flutter environment. It also passes any "new Intent" that was received (via [`Activity.onNewIntent`](https://developer.android.com/reference/android/app/Activity#onNewIntent(android.content.Intent))) while the `Activity` was already "started".
+`Intent` in Android is the "payload" of the communication between and within apps. This plugin passes the `Intent`, which "started"  the `Activity` (which is running flutter runtime) to the flutter environment. It also passes any "new Intent" that was received (via [`Activity.onNewIntent`](https://developer.android.com/reference/android/app/Activity#onNewIntent(android.content.Intent))) while the `Activity` was already "started".
 
 If the `Intent` was "started" via `startActivityForResult`, then this plugin also sends additional information (package name and app signature) about the "calling" Android Component, and can send "result" back (via [`Activity.setResult`](https://developer.android.com/reference/android/app/Activity#setResult(int))) to it.
 
