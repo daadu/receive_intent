@@ -13,7 +13,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  ReceivedIntent _initialIntent;
+  Intent _initialIntent;
 
   @override
   void initState() {
@@ -31,7 +31,7 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
-  Widget _buildFromIntent(String label, ReceivedIntent intent) {
+  Widget _buildFromIntent(String label, Intent intent) {
     return Center(
       child: Column(
         children: [
@@ -59,7 +59,7 @@ class _MyAppState extends State<MyApp> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               _buildFromIntent("INITIAL", _initialIntent),
-              StreamBuilder<ReceivedIntent>(
+              StreamBuilder<Intent>(
                 stream: ReceiveIntent.receivedIntentStream,
                 builder: (context, snapshot) =>
                     _buildFromIntent("STREAMED", snapshot.data),

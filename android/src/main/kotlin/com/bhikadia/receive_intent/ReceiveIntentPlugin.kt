@@ -34,8 +34,10 @@ class ReceiveIntentPlugin : FlutterPlugin, MethodCallHandler, EventChannel.Strea
     private var latestIntentMap: Map<String, Any?>? = null
     private var initialIntent = true
 
-    private fun intentToMap(intent: Intent, fromPackageName: String?): Map<String, Any?> {
-        return mapOf(
+    private fun handleIntent(intent: Intent, fromPackageName: String?) {
+        //Log.e("ReceiveIntentPlugin", "intent: $intent")
+        //Log.e("ReceiveIntentPlugin", "fromPackageName: $fromPackageName")
+        val intentMap = mapOf<String, Any?>(
                 "fromPackageName" to fromPackageName,
                 "fromSignatures" to fromPackageName?.let { getApplicationSignature(context, it) },
                 "action" to intent.action,
@@ -43,21 +45,16 @@ class ReceiveIntentPlugin : FlutterPlugin, MethodCallHandler, EventChannel.Strea
                 "categories" to intent.categories,
                 "extra" to intent.extras?.let { bundleToJSON(it).toString() }
         )
-    }
-
-    private fun handleIntent(intent: Intent, fromPackageName: String?) {
-        //Log.e("ReceiveIntentPlugin", "intent: $intent")
-        //Log.e("ReceiveIntentPlugin", "fromPackageName: $fromPackageName")
-        //Log.e("ReceiveIntentPlugin", "intentMap: " + intentToMap(intent, fromPackageName))
+        //Log.e("ReceiveIntentPlugin", "intentMap: $intentMap")
         if (initialIntent) {
-            initialIntentMap = intentToMap(intent, fromPackageName)
+            initialIntentMap = intentMap
             initialIntent = false
         }
-        latestIntentMap = intentToMap(intent, fromPackageName)
+        latestIntentMap = intentMap
         eventSink?.success(latestIntentMap)
     }
 
-    private fun giveResult(result: Result, resultCode: Int?, data: String?, shouldFinish: Boolean?) {
+    private fun setResult(result: Result, resultCode: Int?, data: String?, shouldFinish: Boolean?) {
         if (resultCode != null) {
             if (data == null) {
                 activity?.setResult(resultCode)
@@ -65,10 +62,10 @@ class ReceiveIntentPlugin : FlutterPlugin, MethodCallHandler, EventChannel.Strea
                 val json = JSONObject(data)
                 activity?.setResult(resultCode, jsonToIntent(json))
             }
-            if(shouldFinish ?: false){
+            if (shouldFinish ?: false) {
                 activity?.finish()
             }
-            result.success(null)
+            return result.success(null)
         }
         result.error("InvalidArg", "resultCode can not be null", null)
     }
@@ -89,8 +86,8 @@ class ReceiveIntentPlugin : FlutterPlugin, MethodCallHandler, EventChannel.Strea
             "getInitialIntent" -> {
                 result.success(initialIntentMap)
             }
-            "giveResult" -> {
-                giveResult(result, call.argument("resultCode"), call.argument("data"), call.argument("shouldFinish"))
+            "setResult" -> {
+                setResult(result, call.argument("resultCode"), call.argument("data"), call.argument("shouldFinish"))
             }
             else -> {
                 result.notImplemented()

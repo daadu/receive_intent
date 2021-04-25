@@ -3,7 +3,7 @@ import 'dart:convert';
 
 import 'package:flutter/services.dart';
 
-class ReceivedIntent {
+class Intent {
   final bool isNull;
   final String? fromPackageName;
   final List<String>? fromSignatures;
@@ -14,7 +14,7 @@ class ReceivedIntent {
 
   bool get isNotNull => !isNull;
 
-  const ReceivedIntent({
+  const Intent({
     this.isNull = true,
     this.fromPackageName,
     this.fromSignatures,
@@ -24,7 +24,7 @@ class ReceivedIntent {
     this.extra,
   });
 
-  factory ReceivedIntent.fromMap(Map? map) => ReceivedIntent(
+  factory Intent.fromMap(Map? map) => Intent(
         isNull: map == null,
         fromPackageName: map?["fromPackageName"],
         fromSignatures: map?["fromSignatures"] != null
@@ -59,19 +59,19 @@ class ReceiveIntent {
   static const EventChannel _eventChannel =
       const EventChannel("receive_intent/event");
 
-  static Future<ReceivedIntent?> getInitialIntent() async {
+  static Future<Intent?> getInitialIntent() async {
     final renameMap = await _methodChannel.invokeMapMethod('getInitialIntent');
     //print("result: $renameMap");
-    return ReceivedIntent.fromMap(renameMap);
+    return Intent.fromMap(renameMap);
   }
 
-  static Stream<ReceivedIntent?> receivedIntentStream = _eventChannel
+  static Stream<Intent?> receivedIntentStream = _eventChannel
       .receiveBroadcastStream()
-      .map<ReceivedIntent?>((event) => ReceivedIntent.fromMap(event as Map?));
+      .map<Intent?>((event) => Intent.fromMap(event as Map?));
 
-  static Future<void> giveResult(int resultCode,
+  static Future<void> setResult(int resultCode,
       {Map<String, dynamic?>? data, bool shouldFinish: false}) async {
-    await _methodChannel.invokeMethod('giveResult', <String, dynamic>{
+    await _methodChannel.invokeMethod('setResult', <String, dynamic>{
       "resultCode": resultCode,
       if (data != null) "data": json.encode(data),
       "shouldFinish": shouldFinish,
