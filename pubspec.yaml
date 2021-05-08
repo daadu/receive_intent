@@ -32,8 +32,6 @@ flutter:
       android:
         package: com.bhikadia.receive_intent
         pluginClass: ReceiveIntentPlugin
-      ios:
-        pluginClass: ReceiveIntentPlugin
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:
