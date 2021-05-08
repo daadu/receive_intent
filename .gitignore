@@ -8,3 +8,7 @@ build/
 
 # Flutter related
 **/pubspec.lock
+
+
+# IDE related
+.idea/
