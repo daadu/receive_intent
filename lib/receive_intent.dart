@@ -3,6 +3,9 @@ import 'dart:convert';
 
 import 'package:flutter/services.dart';
 
+const kActivityResultOk = -1;
+const kActivityResultCanceled = 0;
+
 class Intent {
   final bool isNull;
   final String? fromPackageName;
