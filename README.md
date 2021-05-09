@@ -1,14 +1,19 @@
 # receive_intent
 
-[![pub.dev](https://img.shields.io/pub/v/receive_intent?logo=dart)](https://pub.dev/packages/receive_intent)
-[![analysis](https://github.com/daadu/receive_intent/workflows/analysis/badge.svg)](https://github.com/daadu/receive_intent/actions?query=workflow%3Aanalysis)
-[![pub points](https://badges.bar/receive_intent/pub%20points)](https://pub.dev/packages/receive_intent/score)
-[![popularity](https://badges.bar/receive_intent/popularity)](https://pub.dev/packages/receive_intent/score)
-[![likes](https://badges.bar/receive_intent/likes)](https://pub.dev/packages/receive_intent/score)
-[![GitHub issues](https://img.shields.io/github/issues/daadu/receive_intent?logo=github)](https://github.com/daadu/receive_intent/issues)
-[![GitHub milestone](https://img.shields.io/github/milestones/progress-percent/daadu/receive_intent/1?logo=github)](https://github.com/daadu/receive_intent/milestone/1)
-[![GitHub stars](https://img.shields.io/github/stars/daadu/receive_intent?logo=github)](https://github.com/daadu/receive_intent/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/daadu/receive_intent?logo=github)](https://github.com/daadu/receive_intent/network)
+<p>
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+<a href="#contributors-"><img src="https://img.shields.io/badge/all_contributors-1-orange.svg" alt="All Contributors" /></a>
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
+<a href="https://pub.dev/packages/receive_intent"><img src="https://img.shields.io/pub/v/receive_intent?logo=dart" alt="pub.dev"></a>
+<a href="https://github.com/daadu/receive_intent/actions?query=workflow%3Aanalysis"><img src="https://github.com/daadu/receive_intent/workflows/analysis/badge.svg" alt="analysis"></a>
+<a href="https://pub.dev/packages/receive_intent/score"><img src="https://badges.bar/receive_intent/pub%20points" alt="pub points"></a>
+<a href="https://pub.dev/packages/receive_intent/score"><img src="https://badges.bar/receive_intent/popularity" alt="popularity"></a>
+<a href="https://pub.dev/packages/receive_intent/score"><img src="https://badges.bar/receive_intent/likes" alt="likes"></a>
+<a href="https://github.com/daadu/receive_intent/issues"><img src="https://img.shields.io/github/issues/daadu/receive_intent?logo=github" alt="GitHub issues"></a>
+<a href="https://github.com/daadu/receive_intent/milestone/1"><img src="https://img.shields.io/github/milestones/progress-percent/daadu/receive_intent/1?logo=github" alt="GitHub milestone"></a>
+<a href="https://github.com/daadu/receive_intent/stargazers"><img src="https://img.shields.io/github/stars/daadu/receive_intent?logo=github" alt="GitHub stars"></a>
+<a href="https://github.com/daadu/receive_intent/network"><img src="https://img.shields.io/github/forks/daadu/receive_intent?logo=github" alt="GitHub forks"></a></p>
+</p>
 
 A Flutter plugin to pass Android Intents to the Flutter environment.
 
@@ -56,3 +61,23 @@ Check the [Todo](#todo) section above, before you begin with any contribution.
 
 ## Features and bugs
 Please file feature requests and bugs at the [issue tracker](https://github.com/daadu/receive_intent/issues).
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://bhikadia.com/"><img src="https://avatars.githubusercontent.com/u/4963236?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Harsh Bhikadia</b></sub></a><br /><a href="https://github.com/daadu/receive_intent/commits?author=daadu" title="Code">💻</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
