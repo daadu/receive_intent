@@ -1,6 +1,6 @@
 name: receive_intent
 description: Flutter plugin for passing Android Intents to the Flutter environment.
-version: 0.1.2
+version: 0.1.3
 homepage: https://github.com/daadu/receive_intent
 authors:
   - Harsh Bhikadia <harsh@bhikadia.com>
