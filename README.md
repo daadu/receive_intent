@@ -1,3 +1,4 @@
+
 # receive_intent
 
 <p>
@@ -39,10 +40,94 @@ ___Any contribution, idea, criticism or feedback is welcomed.___
 - In general, if you want other apps to "start" your app, then this plugin can pass the `Intent` that "triggered" it to the flutter environment of the app. These `Intent` will give the app understanding of why the app was started. Check [Getting started](#getting-started) section to implement this.
 
 ## Getting started
-TODO
+#### Add `<intent-filter>` to `AndroidMainfest.xml`
+You need to add `<intent-filter>` to `android/app/src/main/AndroidManifest.xml` file:
+```xml
+<manifest ...>
+  <!-- ... other tags -->
+  <application ...>
+    <activity ...>
+      <!-- ... other tags -->
+      
+      <!-- Describe Intent your app can receive with <intent-filter>  -->
+      <intent-filter>
+        <action android:name="RECEIVE_INTENT_EXAMPLE_ACTION" />
+        <category android:name="android.intent.category.DEFAULT"/>
+      </intent-filter>
+    </activity>
+  </application>
+</manifest>
+```
+In this example we want to receive Intent with `action` matching `RECEIVE_INTENT_EXAMPLE_ACTION` literal. This `<intent-filter>` should be added to the `Activity` that extends `FlutterActivity` (for project generated from template it is `MainActivity`). 
+To read more about "Intent and Intent Filter", encourage you to check [official docs](https://developer.android.com/guide/components/intents-filters) from Android. 
+#### Recevie and handle Intent that launched the Activity in Flutter
+Inside flutter code, you can call `ReceiveIntent.getInitialIntent()` to get the `Intent` that started the `Activity`:
+```dart
+import 'package:receive_intent/receive_intent.dart';
+// ...
+
+  Future<void> _initReceiveIntent() async {
+    // Platform messages may fail, so we use a try/catch PlatformException.
+    try {
+      final receivedIntent = await ReceiveIntent.getInitialIntent();
+      // Validate receivedIntent and warn the user, if it is not correct,
+      // but keep in mind it could be `null` or "empty"(`receivedIntent.isNull`).
+    } on PlatformException {
+      // Handle exception
+    }
+  }
+  
+// ...
+```
+#### Listen for any new Intent while the Activity is already running
+To listen to new `Intent` while the `Activity` is running, you can use the `ReceiveIntent.receivedIntentStream` stream:
+```dart
+import 'package:receive_intent/receive_intent.dart';
+// ...
+  StreamSubscription _sub;
+  
+  Future<void> _initReceiveIntentit() async {
+    // ... check initialIntent
+
+    // Attach a listener to the stream
+    _sub = ReceiveIntent.receivedIntentStream.listen((Intent? intent) {
+      // Validate receivedIntent and warn the user, if it is not correct,
+    }, onError: (err) {
+      // Handle exception
+    });
+
+    // NOTE: Don't forget to call _sub.cancel() in dispose()
+  }
+// ...
+```
+#### Send result to the calling Activity (Optional)
+If the calling `Activty` has "started" this activity with `startActivityWithResult` then you can send back result to that activity when ready with `ReceiveIntent.setResult`:
+```dart
+import 'package:receive_intent/receive_intent.dart';
+// ...
+
+  Future<void> _setActivityResult() async {
+    // ...
+    await ReceiveIntent.setResult(kActivityResultOk, data: {"sum": 123})
+  }
+// ...
+```
+You can read more about "Starting Activities and Getting Results" pattern, encourage you to check [official docs](https://developer.android.com/reference/android/app/Activity#starting-activities-and-getting-results) from Android.
+Additionaly, in the case of activity started with `startActivityWithResult`, the `Intent` object will also have package name (`intent.fromPackageName`) and app signautres (`intent.fromSignatures`) of the calling activity. This could be used to validate the calling app, so that sensitive information is not given to unintendent apps.
+#### Tools to test it
+You can test this with either [`adb`](https://developer.android.com/studio/command-line/adb) or [Intent Test](https://play.google.com/store/apps/details?id=com.applauncher.applauncher) app form Playstore.
+##### abd
+To invoke (start) our `FlutterAcitivity` with `RECEIVE_INTENT_EXAMPLE_ACTION`  intent action name as mentioned in example `<intent-filter>` [above](#add-intent-filter-to-AndroidMainfest.xml):
+```sh
+adb shell 'am start -W -a RECEIVE_INTENT_EXAMPLE_ACTION -c android.intent.category.DEFAULT'
+```
+If you don't have  [`adb`](https://developer.android.com/studio/command-line/adb)  in your path, but have  `$ANDROID_HOME`  env variable then use  `"$ANDROID_HOME"/platform-tools/adb ...`.
+Note: Alternatively you could simply enter an  `adb shell`  and run the  [`am`](https://developer.android.com/studio/command-line/adb#am)  commands in it.
+
+#### Check example app
+To know more or to get the working code check the [example app](https://github.com/daadu/receive_intent/tree/master/example).
 
 ## Todo
-- Write [Getting started](#getting-started) section
 - Document API references properly
 - Receive Intent for non-`Activity` based `intent-filter` (`BroadcastReceiver`, `Service`)
 - Automatic testing
@@ -71,7 +156,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://bhikadia.com/"><img src="https://avatars.githubusercontent.com/u/4963236?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Harsh Bhikadia</b></sub></a><br /><a href="https://github.com/daadu/receive_intent/commits?author=daadu" title="Code">💻</a></td>
+    <td align="center"><a href="https://bhikadia.com/"><img src="https://avatars.githubusercontent.com/u/4963236?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Harsh Bhikadia</b></sub></a><br /><a href="#ideas-daadu" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/daadu/receive_intent/commits?author=daadu" title="Code">💻</a></td>
   </tr>
 </table>
 
