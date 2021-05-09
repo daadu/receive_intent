@@ -59,6 +59,7 @@ You need to add `<intent-filter>` to `android/app/src/main/AndroidManifest.xml` 
 </manifest>
 ```
 In this example we want to receive Intent with `action` matching `RECEIVE_INTENT_EXAMPLE_ACTION` literal. This `<intent-filter>` should be added to the `Activity` that extends `FlutterActivity` (for project generated from template it is `MainActivity`). 
+
 To read more about "Intent and Intent Filter", encourage you to check [official docs](https://developer.android.com/guide/components/intents-filters) from Android. 
 #### Recevie and handle Intent that launched the Activity in Flutter
 Inside flutter code, you can call `ReceiveIntent.getInitialIntent()` to get the `Intent` that started the `Activity`:
@@ -112,7 +113,8 @@ import 'package:receive_intent/receive_intent.dart';
   }
 // ...
 ```
-You can read more about "Starting Activities and Getting Results" pattern, encourage you to check [official docs](https://developer.android.com/reference/android/app/Activity#starting-activities-and-getting-results) from Android.
+To read more about "Starting Activities and Getting Results" pattern, encourage you to check [official docs](https://developer.android.com/reference/android/app/Activity#starting-activities-and-getting-results) from Android.
+
 Additionaly, in the case of activity started with `startActivityWithResult`, the `Intent` object will also have package name (`intent.fromPackageName`) and app signautres (`intent.fromSignatures`) of the calling activity. This could be used to validate the calling app, so that sensitive information is not given to unintendent apps.
 #### Tools to test it
 You can test this with either [`adb`](https://developer.android.com/studio/command-line/adb) or [Intent Test](https://play.google.com/store/apps/details?id=com.applauncher.applauncher) app form Playstore.
@@ -122,6 +124,7 @@ To invoke (start) our `FlutterAcitivity` with `RECEIVE_INTENT_EXAMPLE_ACTION`  i
 adb shell 'am start -W -a RECEIVE_INTENT_EXAMPLE_ACTION -c android.intent.category.DEFAULT'
 ```
 If you don't have  [`adb`](https://developer.android.com/studio/command-line/adb)  in your path, but have  `$ANDROID_HOME`  env variable then use  `"$ANDROID_HOME"/platform-tools/adb ...`.
+
 Note: Alternatively you could simply enter an  `adb shell`  and run the  [`am`](https://developer.android.com/studio/command-line/adb#am)  commands in it.
 
 #### Check example app
