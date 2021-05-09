@@ -60,7 +60,7 @@ You need to add `<intent-filter>` to `android/app/src/main/AndroidManifest.xml` 
 ```
 In this example we want to receive Intent with `action` matching `RECEIVE_INTENT_EXAMPLE_ACTION` literal. This `<intent-filter>` should be added to the `Activity` that extends `FlutterActivity` (for project generated from template it is `MainActivity`). 
 
-To read more about "Intent and Intent Filter", encourage you to check [official docs](https://developer.android.com/guide/components/intents-filters) from Android. 
+`<intent-filter>` describes, what `Intent` the `Activity` is capable to recevie. To read more about "Intent and Intent Filter", encourage you to check [official docs](https://developer.android.com/guide/components/intents-filters) from Android. 
 #### Recevie and handle Intent that launched the Activity in Flutter
 Inside flutter code, you can call `ReceiveIntent.getInitialIntent()` to get the `Intent` that started the `Activity`:
 ```dart
