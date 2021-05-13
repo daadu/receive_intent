@@ -118,7 +118,7 @@ To read more about "Starting Activities and Getting Results" pattern, encourage 
 Additionaly, in the case of activity started with `startActivityWithResult`, the `Intent` object will also have package name (`intent.fromPackageName`) and app signautres (`intent.fromSignatures`) of the calling activity. This could be used to validate the calling app, so that sensitive information is not given to unintendent apps.
 #### Tools to test it
 You can test this with either [`adb`](https://developer.android.com/studio/command-line/adb) or [Intent Test](https://play.google.com/store/apps/details?id=com.applauncher.applauncher) app form Playstore.
-##### abd
+##### adb
 To invoke (start) our `FlutterAcitivity` with `RECEIVE_INTENT_EXAMPLE_ACTION`  intent action name as mentioned in example `<intent-filter>` [above](#add-intent-filter-to-AndroidMainfest.xml):
 ```sh
 adb shell 'am start -W -a RECEIVE_INTENT_EXAMPLE_ACTION -c android.intent.category.DEFAULT'
