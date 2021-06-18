@@ -1,3 +1,7 @@
+## [0.1.4] - 18 June 2021
+
+* fix: convert `intent.categories` to `List`
+
 ## [0.1.3] - 9 May 2021
 
 * doc(readme): added all-contributors section
