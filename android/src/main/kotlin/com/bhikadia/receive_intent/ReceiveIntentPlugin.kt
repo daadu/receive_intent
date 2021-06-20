@@ -42,7 +42,7 @@ class ReceiveIntentPlugin : FlutterPlugin, MethodCallHandler, EventChannel.Strea
                 "fromSignatures" to fromPackageName?.let { getApplicationSignature(context, it) },
                 "action" to intent.action,
                 "data" to intent.dataString,
-                "categories" to intent.categories.toList(),
+                "categories" to intent.categories?.toList(),
                 "extra" to intent.extras?.let { bundleToJSON(it).toString() }
         )
         //Log.e("ReceiveIntentPlugin", "intentMap: $intentMap")
