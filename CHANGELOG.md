@@ -1,3 +1,7 @@
+## [0.1.5] - 20 June 2021
+
+* fix: `handleIntent`: null check added for `Intent.categories`
+
 ## [0.1.4] - 18 June 2021
 
 * fix: convert `intent.categories` to `List`
