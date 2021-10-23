@@ -54,6 +54,13 @@ class Intent {
         "categories": categories,
         "extra": extra,
       };
+
+  @override
+  String toString() {
+    if (isNull) return 'Intent(null)';
+    var str = 'Intent${toMap()}';
+    return str.replaceFirst('{', '(').replaceFirst('}', ')', str.length - 1);
+  }
 }
 
 class ReceiveIntent {
