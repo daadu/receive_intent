@@ -1,3 +1,7 @@
+## [0.1.6] - 8 December 2021
+
+* feat: `Intent.toString` implmented nicely
+
 ## [0.1.5] - 20 June 2021
 
 * fix: `handleIntent`: null check added for `Intent.categories`
