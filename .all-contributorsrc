@@ -19,6 +19,15 @@
         "ideas",
         "code"
       ]
+    },
+    {
+      "login": "TheLastGimbus",
+      "name": "Mateusz Soszyński",
+      "avatar_url": "https://avatars.githubusercontent.com/u/40139196?v=4",
+      "profile": "https://the.lastgimbus.com/",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
