@@ -10,7 +10,7 @@ class Intent {
   final bool isNull;
   final String? fromPackageName;
   final List<String>? fromSignatures;
-  final String action;
+  final String? action;
   final String? data;
   final List<String>? categories;
   final Map<String, dynamic>? extra;
@@ -21,7 +21,7 @@ class Intent {
     this.isNull = true,
     this.fromPackageName,
     this.fromSignatures,
-    required this.action,
+    this.action,
     this.data,
     this.categories,
     this.extra,
