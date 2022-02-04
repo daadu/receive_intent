@@ -37,10 +37,10 @@ class _MyAppState extends State<MyApp> {
         children: [
           Text(label),
           Text(
-              "fromPackage: ${intent?.fromPackageName}\nfromSignatures: ${_initialIntent?.fromSignatures}"),
+              "fromPackage: ${intent?.fromPackageName}\nfromSignatures: ${intent?.fromSignatures}"),
           Text(
-              'action: ${_initialIntent?.action}\ndata: ${_initialIntent?.data}\ncategories: ${_initialIntent?.categories}'),
-          Text("extras: ${_initialIntent?.extra}")
+              'action: ${intent?.action}\ndata: ${intent?.data}\ncategories: ${intent?.categories}'),
+          Text("extras: ${intent?.extra}")
         ],
       ),
     );
