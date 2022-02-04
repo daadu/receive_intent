@@ -3,7 +3,7 @@
 
 <p>
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-<a href="#contributors-"><img src="https://img.shields.io/badge/all_contributors-2-orange.svg" alt="All Contributors" /></a>
+<a href="#contributors-"><img src="https://img.shields.io/badge/all_contributors-3-orange.svg" alt="All Contributors" /></a>
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 <a href="https://pub.dev/packages/receive_intent"><img src="https://img.shields.io/pub/v/receive_intent?logo=dart" alt="pub.dev"></a>
 <a href="https://github.com/daadu/receive_intent/actions?query=workflow%3Aanalysis"><img src="https://github.com/daadu/receive_intent/workflows/analysis/badge.svg" alt="analysis"></a>
@@ -13,7 +13,7 @@
 <a href="https://github.com/daadu/receive_intent/issues"><img src="https://img.shields.io/github/issues/daadu/receive_intent?logo=github" alt="GitHub issues"></a>
 <a href="https://github.com/daadu/receive_intent/milestone/1"><img src="https://img.shields.io/github/milestones/progress-percent/daadu/receive_intent/1?logo=github" alt="GitHub milestone"></a>
 <a href="https://github.com/daadu/receive_intent/stargazers"><img src="https://img.shields.io/github/stars/daadu/receive_intent?logo=github" alt="GitHub stars"></a>
-<a href="https://github.com/daadu/receive_intent/network"><img src="https://img.shields.io/github/forks/daadu/receive_intent?logo=github" alt="GitHub forks"></a></p>
+<a href="https://github.com/daadu/receive_intent/network"><img src="https://img.shields.io/github/forks/daadu/receive_intent?logo=github" alt="GitHub forks"></a>
 </p>
 
 A Flutter plugin to pass Android Intents to the Flutter environment.
@@ -161,6 +161,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://bhikadia.com/"><img src="https://avatars.githubusercontent.com/u/4963236?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Harsh Bhikadia</b></sub></a><br /><a href="#ideas-daadu" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/daadu/receive_intent/commits?author=daadu" title="Code">💻</a></td>
     <td align="center"><a href="https://the.lastgimbus.com/"><img src="https://avatars.githubusercontent.com/u/40139196?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Mateusz Soszyński</b></sub></a><br /><a href="https://github.com/daadu/receive_intent/commits?author=TheLastGimbus" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/luckyrat"><img src="https://avatars.githubusercontent.com/u/1211375?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Chris Tomlinson</b></sub></a><br /><a href="https://github.com/daadu/receive_intent/commits?author=luckyrat" title="Code">💻</a></td>
   </tr>
 </table>
 

@@ -28,6 +28,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "luckyrat",
+      "name": "Chris Tomlinson",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1211375?v=4",
+      "profile": "https://github.com/luckyrat",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,

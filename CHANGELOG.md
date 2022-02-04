@@ -1,3 +1,8 @@
+## 0.2.0
+
+ * **FEAT**: allow receipt of intents with no action (#9).
+ * **FIX**: example - showing proper info for "streamed" intent
+
 ## [0.1.6] - 8 December 2021
 
 * feat: `Intent.toString` implmented nicely
