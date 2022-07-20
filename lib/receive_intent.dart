@@ -80,7 +80,7 @@ class ReceiveIntent {
       .map<Intent?>((event) => Intent.fromMap(event as Map?));
 
   static Future<void> setResult(int resultCode,
-      {Map<String, dynamic?>? data, bool shouldFinish: false}) async {
+      {Map<String, Object?>? data, bool shouldFinish: false}) async {
     await _methodChannel.invokeMethod('setResult', <String, dynamic>{
       "resultCode": resultCode,
       if (data != null) "data": json.encode(data),

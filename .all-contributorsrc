@@ -37,6 +37,16 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "eric-nextsense",
+      "name": "eric-nextsense",
+      "avatar_url": "https://avatars.githubusercontent.com/u/78733538?v=4",
+      "profile": "https://github.com/eric-nextsense",
+      "contributions": [
+        "bug",
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,

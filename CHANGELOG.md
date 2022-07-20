@@ -1,3 +1,7 @@
+## 0.2.1
+
+ * **FIX**: fix(android): update android tools versions (#12)
+
 ## 0.2.0
 
  * **FEAT**: allow receipt of intents with no action (#9).
@@ -5,7 +9,7 @@
 
 ## [0.1.6] - 8 December 2021
 
-* feat: `Intent.toString` implmented nicely
+* feat: `Intent.toString` implemented nicely
 
 ## [0.1.5] - 20 June 2021
 
