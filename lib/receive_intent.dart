@@ -64,10 +64,9 @@ class Intent {
 }
 
 class ReceiveIntent {
-  static const MethodChannel _methodChannel =
-      const MethodChannel('receive_intent');
+  static const MethodChannel _methodChannel = MethodChannel('receive_intent');
   static const EventChannel _eventChannel =
-      const EventChannel("receive_intent/event");
+      EventChannel("receive_intent/event");
 
   static Future<Intent?> getInitialIntent() async {
     final renameMap = await _methodChannel.invokeMapMethod('getInitialIntent');
@@ -80,7 +79,7 @@ class ReceiveIntent {
       .map<Intent?>((event) => Intent.fromMap(event as Map?));
 
   static Future<void> setResult(int resultCode,
-      {Map<String, Object?>? data, bool shouldFinish: false}) async {
+      {Map<String, Object?>? data, bool shouldFinish = false}) async {
     await _methodChannel.invokeMethod('setResult', <String, dynamic>{
       "resultCode": resultCode,
       if (data != null) "data": json.encode(data),
