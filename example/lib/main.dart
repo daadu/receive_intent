@@ -7,7 +7,9 @@ void main() {
   runApp(const MyApp());
 }
 
+/// Example app widget for the plugin.
 class MyApp extends StatefulWidget {
+  /// Constructor of MyApp widget.
   const MyApp({Key key}) : super(key: key);
 
   @override

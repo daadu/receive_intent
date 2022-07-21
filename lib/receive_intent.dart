@@ -3,7 +3,16 @@ import 'dart:convert';
 
 import 'package:flutter/services.dart';
 
+/// Result code indicating that operation succeeded.
+///
+/// Same as [`Activity.RESULT_OK`](https://developer.android.com/reference/android/app/Activity#RESULT_OK)
+/// but for the Dart world.
 const kActivityResultOk = -1;
+
+/// Result code indicating that operation canceled.
+///
+/// Same as [`Activity.RESULT_CANCELED`](https://developer.android.com/reference/android/app/Activity#RESULT_CANCELED)
+/// but for the Dart world.
 const kActivityResultCanceled = 0;
 
 class Intent {
