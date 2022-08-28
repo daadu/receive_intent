@@ -1,3 +1,9 @@
+## 0.2.2
+
+ * **CHORE**: added proper lints and fixed some warnings
+ * **DOCS**: some API docs
+ * **DOCS**: fix badge links
+
 ## 0.2.1
 
  * **FIX**: fix(android): update android tools versions (#12)
