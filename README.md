@@ -7,9 +7,9 @@
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 <a href="https://pub.dev/packages/receive_intent"><img src="https://img.shields.io/pub/v/receive_intent?logo=dart" alt="pub.dev"></a>
 <a href="https://github.com/daadu/receive_intent/actions?query=workflow%3Aanalysis"><img src="https://github.com/daadu/receive_intent/workflows/analysis/badge.svg" alt="analysis"></a>
-<a href="https://pub.dev/packages/receive_intent/score"><img src="https://badges.bar/receive_intent/pub%20points" alt="pub points"></a>
-<a href="https://pub.dev/packages/receive_intent/score"><img src="https://badges.bar/receive_intent/popularity" alt="popularity"></a>
-<a href="https://pub.dev/packages/receive_intent/score"><img src="https://badges.bar/receive_intent/likes" alt="likes"></a>
+<a href="https://pub.dev/packages/receive_intent/score"><img src="https://img.shields.io/pub/points/receive_intent?logo=dart" alt="pub points"></a>
+<a href="https://pub.dev/packages/receive_intent/score"><img src="https://img.shields.io/pub/popularity/receive_intent?logo=dart" alt="popularity"></a>
+<a href="https://pub.dev/packages/receive_intent/score"><img src="https://img.shields.io/pub/likes/receive_intent?logo=dart" alt="likes"></a>
 <a href="https://github.com/daadu/receive_intent/issues"><img src="https://img.shields.io/github/issues/daadu/receive_intent?logo=github" alt="GitHub issues"></a>
 <a href="https://github.com/daadu/receive_intent/milestone/1"><img src="https://img.shields.io/github/milestones/progress-percent/daadu/receive_intent/1?logo=github" alt="GitHub milestone"></a>
 <a href="https://github.com/daadu/receive_intent/stargazers"><img src="https://img.shields.io/github/stars/daadu/receive_intent?logo=github" alt="GitHub stars"></a>
