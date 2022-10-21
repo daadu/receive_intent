@@ -3,6 +3,7 @@ package com.bhikadia.receive_intent
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Parcelable
@@ -11,6 +12,7 @@ import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
 import java.security.MessageDigest
+import java.util.ArrayList
 
 
 fun jsonToBundle(json: JSONObject): Bundle {
@@ -71,6 +73,9 @@ fun wrap(o: Any?): Any? {
     try {
         if (o is Collection<*>) {
             //Log.e("ReceiveIntentPlugin", "$o is Collection<*>")
+            if (o is ArrayList<*>) {
+                return toJSONArray(o)
+            }
             return JSONArray(o as Collection<*>?)
         } else if (o.javaClass.isArray) {
             //Log.e("ReceiveIntentPlugin", "$o is isArray")
@@ -91,7 +96,7 @@ fun wrap(o: Any?): Any? {
                 o is String) {
             return o
         }
-        if (o.javaClass.getPackage().name.startsWith("java.")) {
+        if (o is Uri || o.javaClass.getPackage().name.startsWith("java.")) {
             return o.toString()
         }
     } catch (e: Exception) {
@@ -103,7 +108,7 @@ fun wrap(o: Any?): Any? {
 @Throws(JSONException::class)
 fun toJSONArray(array: Any): JSONArray? {
     val result = JSONArray()
-    if (!array.javaClass.isArray) {
+    if (!array.javaClass.isArray && array !is ArrayList<*>) {
         throw JSONException("Not a primitive array: " + array.javaClass)
     }
 
@@ -112,6 +117,9 @@ fun toJSONArray(array: Any): JSONArray? {
             array.forEach { result.put(wrap(it)) }
         }
         is Array<*> -> {
+            array.forEach { result.put(wrap(it)) }
+        }
+        is ArrayList<*> -> {
             array.forEach { result.put(wrap(it)) }
         }
     }
