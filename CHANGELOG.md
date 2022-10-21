@@ -1,3 +1,7 @@
+## 0.2.3
+
+ * **FIX**: encode URI and ArrayList in JSON data (#14)
+
 ## 0.2.2
 
  * **CHORE**: added proper lints and fixed some warnings
