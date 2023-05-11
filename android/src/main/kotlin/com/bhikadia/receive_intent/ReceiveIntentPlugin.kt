@@ -14,6 +14,7 @@ import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 import org.json.JSONObject
+// import android.util.Log
 
 
 /** ReceiveIntentPlugin */
@@ -35,8 +36,10 @@ class ReceiveIntentPlugin : FlutterPlugin, MethodCallHandler, EventChannel.Strea
     private var initialIntent = true
 
     private fun handleIntent(intent: Intent, fromPackageName: String?) {
-        //Log.e("ReceiveIntentPlugin", "intent: $intent")
-        //Log.e("ReceiveIntentPlugin", "fromPackageName: $fromPackageName")
+        // Log.e("ReceiveIntentPlugin", "intent: $intent")
+        // val decodeData = intent.extras?.get("com.symbol.datawedge.decode_data")
+        // Log.e("ReceiveIntentPlugin", "decodeData: $decodeData")
+        // Log.e("ReceiveIntentPlugin", "fromPackageName: $fromPackageName")
         val intentMap = mapOf<String, Any?>(
                 "fromPackageName" to fromPackageName,
                 "fromSignatures" to fromPackageName?.let { getApplicationSignature(context, it) },
@@ -45,7 +48,7 @@ class ReceiveIntentPlugin : FlutterPlugin, MethodCallHandler, EventChannel.Strea
                 "categories" to intent.categories?.toList(),
                 "extra" to intent.extras?.let { bundleToJSON(it).toString() }
         )
-        //Log.e("ReceiveIntentPlugin", "intentMap: $intentMap")
+        // Log.e("ReceiveIntentPlugin", "intentMap: $intentMap")
         if (initialIntent) {
             initialIntentMap = intentMap
             initialIntent = false
@@ -111,6 +114,7 @@ class ReceiveIntentPlugin : FlutterPlugin, MethodCallHandler, EventChannel.Strea
     override fun onAttachedToActivity(binding: ActivityPluginBinding) {
         activity = binding.activity
         binding.addOnNewIntentListener(fun(intent: Intent?): Boolean {
+            // Log.e("addOnNewIntentListener", "intent: $intent")
             intent?.let { handleIntent(it, binding.activity.callingActivity?.packageName) }
             return false;
         })
