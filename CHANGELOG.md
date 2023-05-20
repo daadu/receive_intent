@@ -1,3 +1,8 @@
+## 0.2.4
+
+ * **FEAT**: added support for ByteArrays (#19)
+ * **FIX**: example: migrate to null-safety
+
 ## 0.2.3
 
  * **FIX**: encode URI and ArrayList in JSON data (#14)
