@@ -57,6 +57,15 @@
         "bug",
         "code"
       ]
+    },
+    {
+      "login": "GeertJohan",
+      "name": "Geert-Johan Riemer",
+      "avatar_url": "https://avatars.githubusercontent.com/u/564501?v=4",
+      "profile": "https://stack11.io/",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
