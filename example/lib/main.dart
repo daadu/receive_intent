@@ -10,14 +10,14 @@ void main() {
 /// Example app widget for the plugin.
 class MyApp extends StatefulWidget {
   /// Constructor of MyApp widget.
-  const MyApp({Key key}) : super(key: key);
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   State<MyApp> createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
-  Intent _initialIntent;
+  Intent? _initialIntent;
 
   @override
   void initState() {
@@ -35,7 +35,7 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
-  Widget _buildFromIntent(String label, Intent intent) {
+  Widget _buildFromIntent(String label, Intent? intent) {
     return Center(
       child: Column(
         children: [
@@ -63,7 +63,7 @@ class _MyAppState extends State<MyApp> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               _buildFromIntent("INITIAL", _initialIntent),
-              StreamBuilder<Intent>(
+              StreamBuilder<Intent?>(
                 stream: ReceiveIntent.receivedIntentStream,
                 builder: (context, snapshot) =>
                     _buildFromIntent("STREAMED", snapshot.data),
