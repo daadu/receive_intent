@@ -7,7 +7,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Parcelable
-import android.util.Log
+// import android.util.Log
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
@@ -52,6 +52,7 @@ fun bundleToJSON(bundle: Bundle): JSONObject {
     while (iterator.hasNext()) {
         val key = iterator.next()
         try {
+            // Log.e("ReceiveIntentPlugin wrapping key", "$key")
             json.put(key, wrap(bundle.get(key)))
         } catch (e: JSONException) {
             e.printStackTrace()
@@ -62,27 +63,31 @@ fun bundleToJSON(bundle: Bundle): JSONObject {
 
 fun wrap(o: Any?): Any? {
     if (o == null) {
+        // Log.e("ReceiveIntentPlugin", "$o is null")
         return JSONObject.NULL
     }
     if (o is JSONArray || o is JSONObject) {
+        // Log.e("ReceiveIntentPlugin", "$o is JSONArray or JSONObject")
         return o
     }
     if (o == JSONObject.NULL) {
+        // Log.e("ReceiveIntentPlugin", "$o is JSONObject.NULL")
         return o
     }
     try {
         if (o is Collection<*>) {
-            //Log.e("ReceiveIntentPlugin", "$o is Collection<*>")
+            // Log.e("ReceiveIntentPlugin", "$o is Collection<*>")
             if (o is ArrayList<*>) {
+                // Log.e("ReceiveIntentPlugin", "..And also ArrayList")
                 return toJSONArray(o)
             }
             return JSONArray(o as Collection<*>?)
         } else if (o.javaClass.isArray) {
-            //Log.e("ReceiveIntentPlugin", "$o is isArray")
+            // Log.e("ReceiveIntentPlugin", "$o is isArray")
             return toJSONArray(o)
         }
         if (o is Map<*, *>) {
-            //Log.e("ReceiveIntentPlugin", "$o is Map<*, *>")
+            // Log.e("ReceiveIntentPlugin", "$o is Map<*, *>")
             return JSONObject(o as Map<*, *>?)
         }
         if (o is Boolean ||
@@ -100,7 +105,7 @@ fun wrap(o: Any?): Any? {
             return o.toString()
         }
     } catch (e: Exception) {
-        //Log.e("ReceiveIntentPlugin", e.message, e)
+        // Log.e("ReceiveIntentPlugin", e.message, e)
     }
     return null
 }
@@ -109,20 +114,40 @@ fun wrap(o: Any?): Any? {
 fun toJSONArray(array: Any): JSONArray? {
     val result = JSONArray()
     if (!array.javaClass.isArray && array !is ArrayList<*>) {
+        // Log.e("ReceiveIntentPlugin not a primitive array", "")
         throw JSONException("Not a primitive array: " + array.javaClass)
     }
 
     when (array) {
         is List<*> -> {
+            // Log.e("ReceiveIntentPlugin toJSONArray List", "")
+            // Log.e("ReceiveIntentPlugin toJSONArray List size", "${array.size}")
             array.forEach { result.put(wrap(it)) }
         }
         is Array<*> -> {
+            // Log.e("ReceiveIntentPlugin toJSONArray Array", "")
+            // Log.e("ReceiveIntentPlugin toJSONArray Array size", "${array.size}")
             array.forEach { result.put(wrap(it)) }
         }
         is ArrayList<*> -> {
+            // Log.e("ReceiveIntentPlugin toJSONArray ArrayList", "")
             array.forEach { result.put(wrap(it)) }
         }
+        is ByteArray -> {
+            // Log.e("ReceiveIntentPlugin toJSONArray ByteArray", "")
+            array.forEach { result.put(wrap(it)) }
+        }
+        else -> {
+            // val typename = array.javaClass.kotlin.simpleName
+            // Log.e("ReceiveIntentPlugin toJSONArray else", "$typename")
+            val length = java.lang.reflect.Array.getLength(array)
+            for (i in 0 until length) {
+                result.put(wrap(java.lang.reflect.Array.get(array, i)))
+            }
+        }
     }
+
+    // Log.e("ReceiveIntentPlugin toJSONArray result", "$result")
 
     return result
 }
