@@ -25,6 +25,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
+    namespace 'com.bhikadia.receive_intent'
     compileSdkVersion 30
 
     sourceSets {
