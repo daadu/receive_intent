@@ -3,7 +3,7 @@
 
 <p>
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-<a href="#contributors-"><img src="https://img.shields.io/badge/all_contributors-6-orange.svg" alt="All Contributors" /></a>
+<a href="#contributors-"><img src="https://img.shields.io/badge/all_contributors-7-orange.svg" alt="All Contributors" /></a>
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 <a href="https://pub.dev/packages/receive_intent"><img src="https://img.shields.io/pub/v/receive_intent?logo=dart" alt="pub.dev"></a>
 <a href="https://github.com/daadu/receive_intent/actions?query=workflow%3Aanalysis"><img src="https://github.com/daadu/receive_intent/workflows/analysis/badge.svg" alt="analysis"></a>
@@ -166,6 +166,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/eric-nextsense"><img src="https://avatars.githubusercontent.com/u/78733538?v=4?s=100" width="100px;" alt="eric-nextsense"/><br /><sub><b>eric-nextsense</b></sub></a><br /><a href="https://github.com/daadu/receive_intent/issues?q=author%3Aeric-nextsense" title="Bug reports">🐛</a> <a href="https://github.com/daadu/receive_intent/commits?author=eric-nextsense" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/tneotia"><img src="https://avatars.githubusercontent.com/u/50850142?v=4?s=100" width="100px;" alt="Tanay Neotia"/><br /><sub><b>Tanay Neotia</b></sub></a><br /><a href="https://github.com/daadu/receive_intent/issues?q=author%3Atneotia" title="Bug reports">🐛</a> <a href="https://github.com/daadu/receive_intent/commits?author=tneotia" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://stack11.io/"><img src="https://avatars.githubusercontent.com/u/564501?v=4?s=100" width="100px;" alt="Geert-Johan Riemer"/><br /><sub><b>Geert-Johan Riemer</b></sub></a><br /><a href="https://github.com/daadu/receive_intent/commits?author=GeertJohan" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/derrickgw"><img src="https://avatars.githubusercontent.com/u/26449929?v=4?s=100" width="100px;" alt="Derrick Gibelyou"/><br /><sub><b>Derrick Gibelyou</b></sub></a><br /><a href="https://github.com/daadu/receive_intent/commits?author=derrickgw" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
