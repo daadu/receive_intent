@@ -2,7 +2,7 @@ group 'com.bhikadia.receive_intent'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.7.22'
+    ext.kotlin_version = '1.9.25'
     repositories {
         google()
         mavenCentral()
