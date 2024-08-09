@@ -29,7 +29,7 @@ android {
         namespace 'com.bhikadia.receive_intent'
     }
 
-    compileSdkVersion 30
+    compileSdk 34
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
