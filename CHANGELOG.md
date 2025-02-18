@@ -1,3 +1,7 @@
+## 0.2.7
+
+* License updated to MIT
+
 ## 0.2.6
 
 * *FIX***: support for flutter 3.29
@@ -8,7 +12,7 @@
 * **FIX**: android: upgrade to gradle 8.2
 * **FEAT**: add namespace directive for gradle 8.0 compatibility (#25)
 * **FEAT**: Gradle 8.2.0 compatibility (#26)
-
+    
 ## 0.2.4
 
  * **FEAT**: added support for ByteArrays (#19)
