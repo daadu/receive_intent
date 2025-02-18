@@ -1,3 +1,8 @@
+## 0.2.6
+
+* *FIX***: support for flutter 3.29
+* **FIX**: android: upgrade to API 34
+
 ## 0.2.5
 
 * **FIX**: android: upgrade to gradle 8.2

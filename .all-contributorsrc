@@ -75,6 +75,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "nacuta",
+      "name": "Nacuta Claudiu",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3910139?v=4",
+      "profile": "https://github.com/nacuta",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
