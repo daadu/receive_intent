@@ -17,6 +17,7 @@ const kActivityResultCanceled = 0;
 
 class Intent {
   final bool isNull;
+  final String? componentClassName;
   final String? fromPackageName;
   final List<String>? fromSignatures;
   final String? action;
@@ -28,6 +29,7 @@ class Intent {
 
   const Intent({
     this.isNull = true,
+    this.componentClassName,
     this.fromPackageName,
     this.fromSignatures,
     this.action,
@@ -38,6 +40,7 @@ class Intent {
 
   factory Intent.fromMap(Map? map) => Intent(
         isNull: map == null,
+    componentClassName: map?["componentClassName"],
         fromPackageName: map?["fromPackageName"],
         fromSignatures: map?["fromSignatures"] != null
             ? List.unmodifiable(

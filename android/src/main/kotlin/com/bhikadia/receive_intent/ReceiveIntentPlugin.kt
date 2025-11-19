@@ -41,6 +41,7 @@ class ReceiveIntentPlugin : FlutterPlugin, MethodCallHandler, EventChannel.Strea
         // Log.e("ReceiveIntentPlugin", "decodeData: $decodeData")
         // Log.e("ReceiveIntentPlugin", "fromPackageName: $fromPackageName")
         val intentMap = mapOf<String, Any?>(
+                "componentClassName" to intent.component?.className,
                 "fromPackageName" to fromPackageName,
                 "fromSignatures" to fromPackageName?.let { getApplicationSignature(context, it) },
                 "action" to intent.action,
