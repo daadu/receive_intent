@@ -1,3 +1,8 @@
+## 0.2.8
+
+* **FEAT**: componentClassName is now available when known
+* **FIX**: android: upgrade to API 35
+
 ## 0.2.7
 
 * License updated to MIT
