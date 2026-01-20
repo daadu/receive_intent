@@ -20,7 +20,7 @@ A Flutter plugin to pass Android Intents to the Flutter environment.
 
 `Intent` in Android is the "payload" for the communication between and within apps. This plugin passes the `Intent`, that "started"  the `Activity` to the flutter environment. It also passes any "new Intents" that are received (via [`Activity.onNewIntent`](https://developer.android.com/reference/android/app/Activity#onNewIntent(android.content.Intent))) while the `Activity` is already "started".
 
-If the `Intent` was "started" via `startActivityForResult`, then this plugin also sends additional information (package name and app signature) about the "calling" Android Component, and can send "result" back (via [`Activity.setResult`](https://developer.android.com/reference/android/app/Activity#setResult(int))) to it.
+If the `Intent` was "started" via `startActivityForResult`, then this plugin also sends additional information (package name, app signature and component class name) about the "calling" Android Component, and can send "result" back (via [`Activity.setResult`](https://developer.android.com/reference/android/app/Activity#setResult(int))) to it.
 
 This plugin is in active development.
 ___Any contribution, idea, criticism or feedback is welcomed.___
@@ -115,7 +115,7 @@ import 'package:receive_intent/receive_intent.dart';
 ```
 To read more about "Starting Activities and Getting Results" pattern, encourage you to check [official docs](https://developer.android.com/reference/android/app/Activity#starting-activities-and-getting-results) from Android.
 
-Additionaly, in the case of activity started with `startActivityWithResult`, the `Intent` object will also have package name (`intent.fromPackageName`) and app signautres (`intent.fromSignatures`) of the calling activity. This could be used to validate the calling app, so that sensitive information is not given to unintendent apps.
+Additionaly, in the case of activity started with `startActivityWithResult`, the `Intent` object will also have package name (`intent.fromPackageName`), app signatures (`intent.fromSignatures`) and component class name (`intent.componentClassName`) of the calling activity. This could be used to validate the calling app, so that sensitive information is not given to unintendent apps.
 #### Tools to test it
 You can test this with either [`adb`](https://developer.android.com/studio/command-line/adb) or [Intent Test](https://play.google.com/store/apps/details?id=com.applauncher.applauncher) app form Playstore.
 ##### adb
