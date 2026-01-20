@@ -40,7 +40,7 @@ class Intent {
 
   factory Intent.fromMap(Map? map) => Intent(
         isNull: map == null,
-    componentClassName: map?["componentClassName"],
+        componentClassName: map?["componentClassName"],
         fromPackageName: map?["fromPackageName"],
         fromSignatures: map?["fromSignatures"] != null
             ? List.unmodifiable(
@@ -59,6 +59,7 @@ class Intent {
       );
 
   Map<String, dynamic> toMap() => {
+        "componentClassName": componentClassName,
         "fromPackageName": fromPackageName,
         "fromSignatures": fromSignatures,
         "action": action,
