@@ -1,5 +1,7 @@
 ## 0.2.8
 
+* **FEAT**: Support for Flutter 3.44
+* **FEAT**: Support for AGP 9
 * **FEAT**: componentClassName is now available when known
 * **FIX**: android: upgrade to API 35
 
