@@ -86,6 +86,15 @@
       ]
     },
     {
+      "login": "lzhAndroid",
+      "name": "Mr.monkey",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1432552?v=4",
+      "profile": "https://github.com/lzhAndroid",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
       "login": "MoovBuilder983",
       "name": "MoovBuilder983",
       "avatar_url": "https://avatars.githubusercontent.com/u/124492898?v=4",
@@ -95,12 +104,12 @@
       ]
     },
     {
-      "login": "lzhAndroid",
-      "name": "Mr.monkey",
-      "avatar_url": "https://avatars.githubusercontent.com/u/1432552?v=4",
-      "profile": "https://github.com/lzhAndroid",
+      "login": "intonarumori",
+      "name": "rmri",
+      "avatar_url": "https://avatars.githubusercontent.com/u/86030?v=4",
+      "profile": "https://github.com/intonarumori",
       "contributions": [
-        "bug"
+        "code"
       ]
     }
   ],
