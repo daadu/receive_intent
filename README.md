@@ -3,7 +3,7 @@
 
 <p>
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-<a href="#contributors-"><img src="https://img.shields.io/badge/all_contributors-8-orange.svg" alt="All Contributors" /></a>
+<a href="#contributors-"><img src="https://img.shields.io/badge/all_contributors-11-orange.svg" alt="All Contributors" /></a>
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 <a href="https://pub.dev/packages/receive_intent"><img src="https://img.shields.io/pub/v/receive_intent?logo=dart" alt="pub.dev"></a>
 <a href="https://github.com/daadu/receive_intent/actions?query=workflow%3Aanalysis"><img src="https://github.com/daadu/receive_intent/workflows/analysis/badge.svg" alt="analysis"></a>
@@ -162,7 +162,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://bhikadia.com/"><img src="https://avatars.githubusercontent.com/u/4963236?v=4?s=100" width="100px;" alt="Harsh Bhikadia"/><br /><sub><b>Harsh Bhikadia</b></sub></a><br /><a href="#ideas-daadu" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/daadu/receive_intent/commits?author=daadu" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://the.lastgimbus.com/"><img src="https://avatars.githubusercontent.com/u/40139196?v=4?s=100" width="100px;" alt="Mateusz Soszyński"/><br /><sub><b>Mateusz Soszyński</b></sub></a><br /><a href="https://github.com/daadu/receive_intent/commits?author=TheLastGimbus" title="Code">💻</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/luckyrat"><img src="https://avatars.githubusercontent.com/u/1211375?v=4?s=100" width="100px;" alt="Chris Tomlinson"/><br /><sub><b>Chris Tomlinson</b></sub></a><br /><a href="https://github.com/daadu/receive_intent/commits?author=luckyrat" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/luckyrat"><img src="https://avatars.githubusercontent.com/u/1211375?v=4?s=100" width="100px;" alt="Chris Tomlinson"/><br /><sub><b>Chris Tomlinson</b></sub></a><br /><a href="https://github.com/daadu/receive_intent/commits?author=luckyrat" title="Code">💻</a> <a href="#maintenance-luckyrat" title="Maintenance">🚧</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/eric-nextsense"><img src="https://avatars.githubusercontent.com/u/78733538?v=4?s=100" width="100px;" alt="eric-nextsense"/><br /><sub><b>eric-nextsense</b></sub></a><br /><a href="https://github.com/daadu/receive_intent/issues?q=author%3Aeric-nextsense" title="Bug reports">🐛</a> <a href="https://github.com/daadu/receive_intent/commits?author=eric-nextsense" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/tneotia"><img src="https://avatars.githubusercontent.com/u/50850142?v=4?s=100" width="100px;" alt="Tanay Neotia"/><br /><sub><b>Tanay Neotia</b></sub></a><br /><a href="https://github.com/daadu/receive_intent/issues?q=author%3Atneotia" title="Bug reports">🐛</a> <a href="https://github.com/daadu/receive_intent/commits?author=tneotia" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://stack11.io/"><img src="https://avatars.githubusercontent.com/u/564501?v=4?s=100" width="100px;" alt="Geert-Johan Riemer"/><br /><sub><b>Geert-Johan Riemer</b></sub></a><br /><a href="https://github.com/daadu/receive_intent/commits?author=GeertJohan" title="Code">💻</a></td>
@@ -170,6 +170,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     </tr>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/nacuta"><img src="https://avatars.githubusercontent.com/u/3910139?v=4?s=100" width="100px;" alt="Nacuta Claudiu"/><br /><sub><b>Nacuta Claudiu</b></sub></a><br /><a href="https://github.com/daadu/receive_intent/issues?q=author%3Anacuta" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/lzhAndroid"><img src="https://avatars.githubusercontent.com/u/1432552?v=4?s=100" width="100px;" alt="Mr.monkey"/><br /><sub><b>Mr.monkey</b></sub></a><br /><a href="https://github.com/daadu/receive_intent/issues?q=author%3AlzhAndroid" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://moovance.fr"><img src="https://avatars.githubusercontent.com/u/124492898?v=4?s=100" width="100px;" alt="MoovBuilder983"/><br /><sub><b>MoovBuilder983</b></sub></a><br /><a href="https://github.com/daadu/receive_intent/commits?author=MoovBuilder983" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/intonarumori"><img src="https://avatars.githubusercontent.com/u/86030?v=4?s=100" width="100px;" alt="rmri"/><br /><sub><b>rmri</b></sub></a><br /><a href="https://github.com/daadu/receive_intent/commits?author=intonarumori" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
