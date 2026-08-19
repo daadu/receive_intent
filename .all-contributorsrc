@@ -84,8 +84,18 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "lzhAndroid",
+      "name": "Mr.monkey",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1432552?v=4",
+      "profile": "https://github.com/lzhAndroid",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
-  "badgeTemplate": "<a href=\"#contributors-\"><img src=\"https://img.shields.io/badge/all_contributors-<%= contributors.length %>-orange.svg\" alt=\"All Contributors\" /></a>"
+  "badgeTemplate": "<a href=\"#contributors-\"><img src=\"https://img.shields.io/badge/all_contributors-<%= contributors.length %>-orange.svg\" alt=\"All Contributors\" /></a>",
+  "commitType": "docs"
 }
