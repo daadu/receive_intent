@@ -3,7 +3,7 @@
 
 <p>
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-<a href="#contributors-"><img src="https://img.shields.io/badge/all_contributors-8-orange.svg" alt="All Contributors" /></a>
+<a href="#contributors-"><img src="https://img.shields.io/badge/all_contributors-9-orange.svg" alt="All Contributors" /></a>
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 <a href="https://pub.dev/packages/receive_intent"><img src="https://img.shields.io/pub/v/receive_intent?logo=dart" alt="pub.dev"></a>
 <a href="https://github.com/daadu/receive_intent/actions?query=workflow%3Aanalysis"><img src="https://github.com/daadu/receive_intent/workflows/analysis/badge.svg" alt="analysis"></a>
@@ -170,6 +170,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     </tr>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/nacuta"><img src="https://avatars.githubusercontent.com/u/3910139?v=4?s=100" width="100px;" alt="Nacuta Claudiu"/><br /><sub><b>Nacuta Claudiu</b></sub></a><br /><a href="https://github.com/daadu/receive_intent/issues?q=author%3Anacuta" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/lzhAndroid"><img src="https://avatars.githubusercontent.com/u/1432552?v=4?s=100" width="100px;" alt="Mr.monkey"/><br /><sub><b>Mr.monkey</b></sub></a><br /><a href="https://github.com/daadu/receive_intent/issues?q=author%3AlzhAndroid" title="Bug reports">🐛</a></td>
     </tr>
   </tbody>
 </table>
