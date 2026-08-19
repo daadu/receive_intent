@@ -93,6 +93,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "lzhAndroid",
+      "name": "Mr.monkey",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1432552?v=4",
+      "profile": "https://github.com/lzhAndroid",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,

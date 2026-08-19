@@ -170,6 +170,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     </tr>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/nacuta"><img src="https://avatars.githubusercontent.com/u/3910139?v=4?s=100" width="100px;" alt="Nacuta Claudiu"/><br /><sub><b>Nacuta Claudiu</b></sub></a><br /><a href="https://github.com/daadu/receive_intent/issues?q=author%3Anacuta" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/lzhAndroid"><img src="https://avatars.githubusercontent.com/u/1432552?v=4?s=100" width="100px;" alt="Mr.monkey"/><br /><sub><b>Mr.monkey</b></sub></a><br /><a href="https://github.com/daadu/receive_intent/issues?q=author%3AlzhAndroid" title="Bug reports">🐛</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://moovance.fr"><img src="https://avatars.githubusercontent.com/u/124492898?v=4?s=100" width="100px;" alt="MoovBuilder983"/><br /><sub><b>MoovBuilder983</b></sub></a><br /><a href="https://github.com/daadu/receive_intent/commits?author=MoovBuilder983" title="Code">💻</a></td>
     </tr>
   </tbody>
