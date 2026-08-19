@@ -6,9 +6,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2 # required
-      - uses: axel-op/dart-package-analyzer@v3
-        with:
-          # Required:
-          githubToken: ${{ secrets.GITHUB_TOKEN }}
-          # Optional:
-          #relativePath: packages/mypackage/
+      - uses: flutterings/dart-package-analyzer@v1
