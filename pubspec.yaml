@@ -5,7 +5,7 @@ homepage: https://github.com/daadu/receive_intent
 
 environment:
   sdk: ^3.13.0
-  flutter: '>=3.3.0'
+  flutter: '>=3.47.0'
 
 dependencies:
   flutter:
