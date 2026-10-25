@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart' hide Intent;
+import 'package:material_ui/material_ui.dart' hide Intent;
 import 'package:receive_intent/receive_intent.dart';
 
 void main() {
