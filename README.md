@@ -119,7 +119,7 @@ Additionaly, in the case of activity started with `startActivityWithResult`, the
 #### Tools to test it
 You can test this with either [`adb`](https://developer.android.com/studio/command-line/adb) or [Intent Test](https://play.google.com/store/apps/details?id=com.applauncher.applauncher) app form Playstore.
 ##### adb
-To invoke (start) our `FlutterAcitivity` with `RECEIVE_INTENT_EXAMPLE_ACTION`  intent action name as mentioned in example `<intent-filter>` [above](#add-intent-filter-to-AndroidMainfest.xml):
+To invoke (start) our `FlutterActivity` with `RECEIVE_INTENT_EXAMPLE_ACTION`  intent action name as mentioned in example `<intent-filter>` [above](#add-intent-filter-to-AndroidMainfest.xml):
 ```sh
 adb shell 'am start -W -a RECEIVE_INTENT_EXAMPLE_ACTION -c android.intent.category.DEFAULT'
 ```
